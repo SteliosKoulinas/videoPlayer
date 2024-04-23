@@ -91,22 +91,25 @@ export default function Home() {
           </p>
         </a>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+  return (
+    <main className="flex min-h-screen flex-col items-center p-24 bg-white">
+      <h1 className="text-2xl pb-8">Super Duper Video Player</h1>
+      <video ref={videoPlayer} width="70%" height="100%" autoPlay controls>
+        <source src="unpopular_opinions.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="flex justify-between">
+        <button onClick={togglePlayPause}>
+          {isPlaying ? <FaPause /> : <FaPlay />}
+        </button>
+        <div className="flex items-center justify-between w-18">
+          <p>{calculateTime(currentTime)}</p>
+          <input ref={progressBar} type="range" defaultValue={0}></input>
+          <p>{duration && !isNaN(duration) && calculateTime(duration)}</p>
+        </div>
+        <button onClick={volumeControlOnOff} className="p-4">
+          {isMuted ? <FaVolumeHigh /> : <FaVolumeXmark />}
+        </button>
       </div>
     </main>
   );
