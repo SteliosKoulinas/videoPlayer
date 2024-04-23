@@ -1,0 +1,266 @@
+.video::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  background-color: transparent !important;
+  font-family: poppins;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: white;
+  position: absolute;
+  top: 0;
+}
+
+.progressbar {
+  --bar-bg: rgba(255, 255, 255, 0.5);
+  --seek-before-width: 0;
+  --seek-before-color: pink;
+  --knobby: pink;
+  --selectedKnobby: blue;
+
+  appearance: none;
+  background-color: var(--bar-bg);
+  height: 3px;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+/*progress bar - Safari*/
+.progressbar::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  outline: none;
+}
+
+/*progress bar - Firefox*/
+.progressbar::-moz-range-track {
+  height: 3px;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  outline: none;
+}
+.progressbar::-moz-focus-outer {
+  border: 0;
+}
+
+/*progress bar - chrome & Safari*/
+.progressbar::before {
+  content: "";
+  height: 3px;
+  width: var(--seek-before-width);
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/*progress bar - Firefox*/
+.progressbar::-moz-range-progress {
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  height: 3px;
+}
+
+/*knobby - chrome & safari*/
+.progressbar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  margin: -4px 0 0 0;
+  z-index: 4;
+  box-sizing: border-box;
+}
+
+/*knobby while dragging - chrome & safari*/
+.progressbar:active::-webkit-slider-thumb {
+  transform: scale(1.3);
+  /*background: var(--selectedKnobby);*/
+}
+
+.progressbar::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+
+/*knobby - firefox*/
+.progressbar::-moz-range-thumb {
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+  border: transparent;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  z-index: 4;
+  box-sizing: border-box;
+}
+
+/*knobby while dragging - firefox*/
+.progressbar:active::-moz-range-thumb {
+  transform: scale(1.3);
+}
+
+.volumebar {
+  --bar-bg: rgba(255, 255, 255, 0.5);
+  --seek-before-width: 100%;
+  --seek-before-color: white;
+  --knobby: white;
+
+  appearance: none;
+  background-color: var(--bar-bg);
+  height: 3px;
+  border-radius: 10px;
+  position: relative;
+  width: 40%;
+  outline: none;
+}
+
+/*volume bar - Safari*/
+.progressbar::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  outline: none;
+}
+
+/*volume bar - Firefox*/
+.volumebar::-moz-range-track {
+  height: 3px;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  outline: none;
+}
+.volumebar::-moz-focus-outer {
+  border: 0;
+}
+
+/*volume bar - chrome & Safari*/
+.volumebar::before {
+  content: "";
+  height: 3px;
+  width: var(--seek-before-width);
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/*volume bar - Firefox*/
+.volumebar::-moz-range-progress {
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  height: 3px;
+}
+
+/*knobby - chrome & safari*/
+.volumebar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/*knobby while dragging - chrome & safari*/
+.volumebar:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  /*background: var(--selectedKnobby);*/
+}
+
+.volumebar::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/*knobby - firefox*/
+.volumebar::-moz-range-thumb {
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+  border: transparent;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/*knobby while dragging - firefox*/
+.volumebar:active::-moz-range-thumb {
+  transform: scale(1.2);
+}
+
+.progressbarWrapper {
+  position: relative;
+  width: 100%;
+  align-items: center;
+  top:-3.5px;
+}
+
+.chapter {
+  display: block;
+  height: 4px;
+  background-color: white;
+  position: absolute;
+  bottom: 6px;
+  left: var(--left);
+  width: 5px;
+  z-index: 3;
+  
+  font-size: small;
+  font-weight: 400;
+  /*
+  pointer-events:none;
+  width: var(--width);
+  */
+}
+
+.chapter:hover{
+  display: block;
+  color: red;
+  font-size: small;
+}
+
+.chapterTitle {
+  padding-left: 9%;
+  display: block;
+  color: white;
+  font-size: small;
+  text-shadow: 1px 0.5px black;
+}
+
+.chapter.start {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.chapter.end {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+
